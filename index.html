@@ -2,281 +2,274 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <style>
+            :root {
+--cursor-x-1: 0;
+--cursor-y-1: 0;
 
-    </head>
-    <body>
-        <h1>Mi pagina web</h1>
-        <h2>Tont@ si lo lees</h2>
+--head-rotation: 0deg;
+--face-width: 21vmin;
+--face-height: 24vmin;
+--face-radius: 89% 71% 89% 64% / 76% 73% 87% 108%;
+--face-highlight-radius: 81% 79% 69% 79% / 72% 62% 74% 89%;
 
-        <section id="test">
-            <style>
-                :root {
-  --cursor-x-1: 0;
-  --cursor-y-1: 0;
+--right-eye-top: 34%;
+--right-eye-left: 67%;
+--right-eye-width: 25%;
+--right-eye-height: 24%;
+--right-eye-radius: 58% 59% 57% 56% / 57% 48% 54% 52%;
 
-  --head-rotation: 0deg;
-  --face-width: 21vmin;
-  --face-height: 24vmin;
-  --face-radius: 89% 71% 89% 64% / 76% 73% 87% 108%;
-  --face-highlight-radius: 81% 79% 69% 79% / 72% 62% 74% 89%;
+--left-eye-top: 30%;
+--left-eye-left: 17%;
+--left-eye-width: 24%;
+--left-eye-height: 21%;
+--left-eye-radius: 42% 55% 41% 52% / 57% 55% 54% 43%;
 
-  --right-eye-top: 34%;
-  --right-eye-left: 67%;
-  --right-eye-width: 25%;
-  --right-eye-height: 24%;
-  --right-eye-radius: 58% 59% 57% 56% / 57% 48% 54% 52%;
+--nose-top: 34.5%;
+--nose-left: 50.5%;
+--nose-width: 7%;
+--nose-height: 5%;
+--nose-opacity: 0;
+--nose-radius: 50% / 40%;
 
-  --left-eye-top: 30%;
-  --left-eye-left: 17%;
-  --left-eye-width: 24%;
-  --left-eye-height: 21%;
-  --left-eye-radius: 42% 55% 41% 52% / 57% 55% 54% 43%;
+--mouth-top:77%;
+--mouth-left:48%;
+--mouth-width:14%;
+--mouth-height:12%;
+--mouth-radius: 41% 58% 58% 43% / 56% 60% 47% 45% ;
 
-  --nose-top: 34.5%;
-  --nose-left: 50.5%;
-  --nose-width: 7%;
-  --nose-height: 5%;
-  --nose-opacity: 0;
-  --nose-radius: 50% / 40%;
-
-  --mouth-top:77%;
-  --mouth-left:48%;
-  --mouth-width:14%;
-  --mouth-height:12%;
-  --mouth-radius: 41% 58% 58% 43% / 56% 60% 47% 45% ;
-
-  --body-width: calc(var(--face-width) * .9);
-  --body-height: calc(var(--face-height) * 1.2);
-  --body-highlight-radius: 66% 90% 99% 69% / 70% 68% 78% 63% ;
+--body-width: calc(var(--face-width) * .9);
+--body-height: calc(var(--face-height) * 1.2);
+--body-highlight-radius: 66% 90% 99% 69% / 70% 68% 78% 63% ;
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  user-select: none;
-  background: linear-gradient(
-    120deg,
-    #689a77,
-    #586d5e 50%,
-    #586d5e
-  );
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
+user-select: none;
+background: linear-gradient(
+120deg,
+#689a77,
+#586d5e 50%,
+#586d5e
+);
 }
 
 body::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #fff7db;
-  mix-blend-mode: overlay;
-  opacity: 0.25;
-  pointer-events: none;
+content: "";
+position: absolute;
+inset: 0;
+background: #fff7db;
+mix-blend-mode: overlay;
+opacity: 0.25;
+pointer-events: none;
 }
 
 .panel-1 {
-  display: grid;
-  place-items: center;
-  padding: 5vmin 0;
-  height: 45vmin;
+display: grid;
+place-items: center;
+padding: 5vmin 0;
+height: 45vmin;
 }
 
 .refresh {
-  appearance: none;
-  padding: .25em .5em;
-  font-size: 18px;
-  font-family: "Operator Mono", menlo, monaco, monospace;
-  border: 2px solid #333;
-  background: transparent;
-  color: #333;
-  cursor: pointer;
+appearance: none;
+padding: .25em .5em;
+font-size: 18px;
+font-family: "Operator Mono", menlo, monaco, monospace;
+border: 2px solid #333;
+background: transparent;
+color: #333;
+cursor: pointer;
 }
 
 .refresh:hover {
-  background: #333;
-  color: #fff;
+background: #333;
+color: #fff;
 }
 
 .face {
-  position: relative;
-  z-index: 1;
-  width: var(--face-width);
-  height: var(--face-height);
-  background: #cfcfcf;
-  overflow: hidden;
-  border-radius: var(--face-radius);
-  cursor: pointer;
-  box-shadow: 0 0 5vmin #fff7db55;
-  perspective: 30vmin;
-  transform: rotate(var(--head-rotation));
-  transition:
-    top .5s,
-    left .5s,
-    width .5s,
-    height .5s,
-    border-radius .5s;
+position: relative;
+z-index: 1;
+width: var(--face-width);
+height: var(--face-height);
+background: #cfcfcf;
+overflow: hidden;
+border-radius: var(--face-radius);
+cursor: pointer;
+box-shadow: 0 0 5vmin #fff7db55;
+perspective: 30vmin;
+transform: rotate(var(--head-rotation));
+transition:
+top .5s,
+left .5s,
+width .5s,
+height .5s,
+border-radius .5s;
 }
 
 .kodama.animating .face {
-  animation: tiktiktik 4s 1;
+animation: tiktiktik 4s 1;
 }
 
 .face-highlight {
-  width: 110%;
-  height: 110%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: #ddd;
-  border-radius: var(--face-highlight-radius);
-  transform:
-    translate(
-      calc(-68% + var(--cursor-x-1) * 6%),
-      calc(-63% + var(--cursor-y-1) * 6%)
-    );
-  transition:
-    top .5s,
-    left .5s,
-    width .5s,
-    height .5s,
-    border-radius .5s;
+width: 110%;
+height: 110%;
+position: absolute;
+top: 50%;
+left: 50%;
+background: #ddd;
+border-radius: var(--face-highlight-radius);
+transform:
+translate(
+  calc(-68% + var(--cursor-x-1) * 6%),
+  calc(-63% + var(--cursor-y-1) * 6%)
+);
+transition:
+top .5s,
+left .5s,
+width .5s,
+height .5s,
+border-radius .5s;
 }
 
 #body-image {
-  width: 0;
-  height: 0;
-  opacity: 0;
+width: 0;
+height: 0;
+opacity: 0;
 }
 
 .body {
-  position: relative;
-  top: -5vmin;
-  width: var(--body-width);
-  height: var(--body-height);
-  clip-path: url('#body-shape');
-  overflow: hidden;
-  background: #bababa;
-  cursor: pointer;
-  transition: all .5s;
+position: relative;
+top: -5vmin;
+width: var(--body-width);
+height: var(--body-height);
+clip-path: url('#body-shape');
+overflow: hidden;
+background: #bababa;
+cursor: pointer;
+transition: all .5s;
 }
 
 .body-highlight {
-  width: 110%;
-  height: 110%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: #cfcfcf;
-  border-radius: var(--body-highlight-radius);
-  transform: translate(-65%, -63%);
-  transition: all .5s;
+width: 110%;
+height: 110%;
+position: absolute;
+top: 50%;
+left: 50%;
+background: #cfcfcf;
+border-radius: var(--body-highlight-radius);
+transform: translate(-65%, -63%);
+transition: all .5s;
 }
 
 .shape {
-  position: absolute;
-  color: #333;
-  background: currentColor;
-  transform-style: preserve-3d;
-  transform:
-    translate(
-      calc(-15% + var(--cursor-x-1) * 30%),
-      calc(-15% + var(--cursor-y-1) * 30%)
-    )
-    rotateX(
-      calc(-15deg + var(--cursor-y-1) * 30deg)
-    )
-    rotateY(
-      calc(-15deg + var(--cursor-x-1) * 30deg)
-    );
-  transition:
-    top .5s,
-    left .5s,
-    width .5s,
-    height .5s,
-    border-radius .5s,
-    opacity .5s;
+position: absolute;
+color: #333;
+background: currentColor;
+transform-style: preserve-3d;
+transform:
+translate(
+  calc(-15% + var(--cursor-x-1) * 30%),
+  calc(-15% + var(--cursor-y-1) * 30%)
+)
+rotateX(
+  calc(-15deg + var(--cursor-y-1) * 30deg)
+)
+rotateY(
+  calc(-15deg + var(--cursor-x-1) * 30deg)
+);
+transition:
+top .5s,
+left .5s,
+width .5s,
+height .5s,
+border-radius .5s,
+opacity .5s;
 }
 
 .right-eye {
-  top: var(--right-eye-top);
-  left: var(--right-eye-left);
-  width: var(--right-eye-width);
-  height: var(--right-eye-height);
-  border-radius: var(--right-eye-radius);
+top: var(--right-eye-top);
+left: var(--right-eye-left);
+width: var(--right-eye-width);
+height: var(--right-eye-height);
+border-radius: var(--right-eye-radius);
 }
 
 .left-eye {
-  top: var(--left-eye-top);
-  left: var(--left-eye-left);
-  width: var(--left-eye-width);
-  height: var(--left-eye-height);
-  border-radius: var(--left-eye-radius);
+top: var(--left-eye-top);
+left: var(--left-eye-left);
+width: var(--left-eye-width);
+height: var(--left-eye-height);
+border-radius: var(--left-eye-radius);
 }
 
 .nose {
-  top: var(--nose-top);
-  left: var(--nose-left);
-  width: var(--nose-width);
-  height: var(--nose-height);
-  opacity: var(--nose-opacity);
-  background: none;
-  border-bottom: 3px solid currentColor;
-  border-radius: var(--nose-radius);
-  transform:
-    translate(
-      calc(-30% + var(--cursor-x-1) * 60%),
-      calc(-30% + var(--cursor-y-1) * 60%)
-    )
-    rotateX(
-      calc(-30deg + var(--cursor-y-1) * 60deg)
-    )
-    rotateY(
-      calc(-30deg + var(--cursor-x-1) * 60deg)
-    );
+top: var(--nose-top);
+left: var(--nose-left);
+width: var(--nose-width);
+height: var(--nose-height);
+opacity: var(--nose-opacity);
+background: none;
+border-bottom: 3px solid currentColor;
+border-radius: var(--nose-radius);
+transform:
+translate(
+  calc(-30% + var(--cursor-x-1) * 60%),
+  calc(-30% + var(--cursor-y-1) * 60%)
+)
+rotateX(
+  calc(-30deg + var(--cursor-y-1) * 60deg)
+)
+rotateY(
+  calc(-30deg + var(--cursor-x-1) * 60deg)
+);
 }
 
 .mouth {
-  top: var(--mouth-top);
-  left: var(--mouth-left);
-  width: var(--mouth-width);
-  height: var(--mouth-height);
-  border-radius: var(--mouth-radius);
+top: var(--mouth-top);
+left: var(--mouth-left);
+width: var(--mouth-width);
+height: var(--mouth-height);
+border-radius: var(--mouth-radius);
 }
 
 @keyframes tiktiktik {
-  3% { transform: rotate(calc(var(--head-rotation) / 1.75)) }
-  4% { transform: rotate(calc(var(--head-rotation) / -0.5)) }
-  5% { transform: rotate(calc(var(--head-rotation) / 2.25)) }
-  6% { transform: rotate(calc(var(--head-rotation) / -0.75)) }
-  8% { transform: rotate(calc(var(--head-rotation) / 3)) }
-  10% { transform: rotate(calc(var(--head-rotation) / -1)) }
-  12% { transform: rotate(calc(var(--head-rotation) / 3.75)) }
-  14% { transform: rotate(calc(var(--head-rotation) / -1.5)) }
-  16% { transform: rotate(calc(var(--head-rotation) / 5)) }
-  19% { transform: rotate(calc(var(--head-rotation) / -3)) }
-  22% { transform: rotate(calc(var(--head-rotation) / 6)) }
-  26% { transform: rotate(calc(var(--head-rotation) / -6)) }
-  30% { transform: rotate(calc(var(--head-rotation) / 7.5)) }
-  34% { transform: rotate(calc(var(--head-rotation) / -12)) }
-  39% { transform: rotate(calc(var(--head-rotation) / 9)) }
-  44% { transform: rotate(calc(var(--head-rotation) / -20)) }
-  50% { transform: rotate(calc(var(--head-rotation) / 11)) }
-  56% { transform: rotate(calc(var(--head-rotation) / -30)) }
-  63% { transform: rotate(calc(var(--head-rotation) / 13.5)) }
-  70% { transform: rotate(calc(var(--head-rotation) / -45)) }
-  78% { transform: rotate(calc(var(--head-rotation) / 17)) }
-  86% { transform: rotate(calc(var(--head-rotation) / -60)) }
-  93% { transform: rotate(calc(var(--head-rotation) / 20)) }
-  100% { transform: rotate(calc(var(--head-rotation) / -90)) }
+3% { transform: rotate(calc(var(--head-rotation) / 1.75)) }
+4% { transform: rotate(calc(var(--head-rotation) / -0.5)) }
+5% { transform: rotate(calc(var(--head-rotation) / 2.25)) }
+6% { transform: rotate(calc(var(--head-rotation) / -0.75)) }
+8% { transform: rotate(calc(var(--head-rotation) / 3)) }
+10% { transform: rotate(calc(var(--head-rotation) / -1)) }
+12% { transform: rotate(calc(var(--head-rotation) / 3.75)) }
+14% { transform: rotate(calc(var(--head-rotation) / -1.5)) }
+16% { transform: rotate(calc(var(--head-rotation) / 5)) }
+19% { transform: rotate(calc(var(--head-rotation) / -3)) }
+22% { transform: rotate(calc(var(--head-rotation) / 6)) }
+26% { transform: rotate(calc(var(--head-rotation) / -6)) }
+30% { transform: rotate(calc(var(--head-rotation) / 7.5)) }
+34% { transform: rotate(calc(var(--head-rotation) / -12)) }
+39% { transform: rotate(calc(var(--head-rotation) / 9)) }
+44% { transform: rotate(calc(var(--head-rotation) / -20)) }
+50% { transform: rotate(calc(var(--head-rotation) / 11)) }
+56% { transform: rotate(calc(var(--head-rotation) / -30)) }
+63% { transform: rotate(calc(var(--head-rotation) / 13.5)) }
+70% { transform: rotate(calc(var(--head-rotation) / -45)) }
+78% { transform: rotate(calc(var(--head-rotation) / 17)) }
+86% { transform: rotate(calc(var(--head-rotation) / -60)) }
+93% { transform: rotate(calc(var(--head-rotation) / 20)) }
+100% { transform: rotate(calc(var(--head-rotation) / -90)) }
 }
-            </style>
+        </style>
 
-            <script>
-                import { reportGlobals } from "https://enes.in/kicss/kicss.js"
+        <script>
+            import { reportGlobals } from "https://enes.in/kicss/kicss.js"
 
 reportGlobals({
-  cursor: true
+cursor: true
 })
 
 const { abs, round } = Math
@@ -284,103 +277,103 @@ const DOM = document.documentElement
 const query = DOM.querySelector.bind(DOM)
 
 const setCSSProperty = (key, value, scope = DOM) => {
-  scope.style.setProperty(key, value)
+scope.style.setProperty(key, value)
 }
 
 const getCSSProperty = (key, scope = DOM) => {
-  return getComputedStyle(scope).getPropertyValue(key)
+return getComputedStyle(scope).getPropertyValue(key)
 }
 
 const random = (min, max) => {
-  if (!max) {
-    return Math.random() * min
-  }
-  return min + Math.random() * (max - min)
+if (!max) {
+return Math.random() * min
+}
+return min + Math.random() * (max - min)
 }
 
 const largeShapeKeys = [
-  '--face-radius',
-  '--face-highlight-radius',
-  '--body-highlight-radius'
+'--face-radius',
+'--face-highlight-radius',
+'--body-highlight-radius'
 ]
 
 const faceShapeKeys = [
-  '--right-eye-radius',
-  '--left-eye-radius',
-  '--mouth-radius'
+'--right-eye-radius',
+'--left-eye-radius',
+'--mouth-radius'
 ]
 
 const refresh = () => {
-  setCSSProperty('--face-width', `${round(random(20, 24))}vmin`)
-  setCSSProperty('--face-height', `${round(random(22, 28))}vmin`)
-  largeShapeKeys.forEach(key => {
-    const radii = `
-      ${round(random(60, 90))}%
-      ${round(random(60, 90))}%
-      ${round(random(60, 100))}%
-      ${round(random(60, 100))}% /
-      ${round(random(60, 90))}%
-      ${round(random(60, 90))}%
-      ${round(random(60, 110))}%
-      ${round(random(60, 110))}%
-    `.replace(/\n/g, '')
-    setCSSProperty(key, radii)
-  })
+setCSSProperty('--face-width', `${round(random(20, 24))}vmin`)
+setCSSProperty('--face-height', `${round(random(22, 28))}vmin`)
+largeShapeKeys.forEach(key => {
+const radii = `
+  ${round(random(60, 90))}%
+  ${round(random(60, 90))}%
+  ${round(random(60, 100))}%
+  ${round(random(60, 100))}% /
+  ${round(random(60, 90))}%
+  ${round(random(60, 90))}%
+  ${round(random(60, 110))}%
+  ${round(random(60, 110))}%
+`.replace(/\n/g, '')
+setCSSProperty(key, radii)
+})
 
-  faceShapeKeys.forEach(key => {
-    const radii = `
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}% /
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}%
-      ${round(random(40, 60))}%
-    `.replace(/\n/g, '')
-    setCSSProperty(key, radii)
-  })
+faceShapeKeys.forEach(key => {
+const radii = `
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}% /
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}%
+  ${round(random(40, 60))}%
+`.replace(/\n/g, '')
+setCSSProperty(key, radii)
+})
 
-  const rightEyeTop = round(random(20, 40));
-  const rightEyeLeft = round(random(55, 70));
-  const rightEyeWidth = round(random(18, 28))
-  const rightEyeHeight = round(random(rightEyeWidth * .8, rightEyeWidth * 1.2))
-  setCSSProperty('--right-eye-top', `${rightEyeTop}%`)
-  setCSSProperty('--right-eye-left', `${rightEyeLeft}%`)
-  setCSSProperty('--right-eye-width', `${rightEyeWidth}%`)
-  setCSSProperty('--right-eye-height', `${rightEyeHeight}%`)
+const rightEyeTop = round(random(20, 40));
+const rightEyeLeft = round(random(55, 70));
+const rightEyeWidth = round(random(18, 28))
+const rightEyeHeight = round(random(rightEyeWidth * .8, rightEyeWidth * 1.2))
+setCSSProperty('--right-eye-top', `${rightEyeTop}%`)
+setCSSProperty('--right-eye-left', `${rightEyeLeft}%`)
+setCSSProperty('--right-eye-width', `${rightEyeWidth}%`)
+setCSSProperty('--right-eye-height', `${rightEyeHeight}%`)
 
-  const leftEyeTop = round(random(rightEyeTop * .8, rightEyeTop * 1.2))
-  const leftEyeLeft = round(random(rightEyeLeft / 5, rightEyeLeft / 2.5));
-  const leftEyeWidth = round(random(rightEyeWidth * .7, rightEyeWidth * 1.3))
-  const leftEyeHeight = round(random(leftEyeWidth * .8, leftEyeWidth * 1.2))
-  setCSSProperty('--left-eye-top', `${leftEyeTop}%`)
-  setCSSProperty('--left-eye-left', `${leftEyeLeft}%`)
-  setCSSProperty('--left-eye-width', `${leftEyeWidth}%`)
-  setCSSProperty('--left-eye-height', `${leftEyeHeight}%`)
+const leftEyeTop = round(random(rightEyeTop * .8, rightEyeTop * 1.2))
+const leftEyeLeft = round(random(rightEyeLeft / 5, rightEyeLeft / 2.5));
+const leftEyeWidth = round(random(rightEyeWidth * .7, rightEyeWidth * 1.3))
+const leftEyeHeight = round(random(leftEyeWidth * .8, leftEyeWidth * 1.2))
+setCSSProperty('--left-eye-top', `${leftEyeTop}%`)
+setCSSProperty('--left-eye-left', `${leftEyeLeft}%`)
+setCSSProperty('--left-eye-width', `${leftEyeWidth}%`)
+setCSSProperty('--left-eye-height', `${leftEyeHeight}%`)
 
-  const mouthWidth = round(random(6, 16))
-  const mouthHeight = round(random(mouthWidth / 2.5, mouthWidth))
-  const mouthTop = round(random(rightEyeTop * 2.25, rightEyeTop * 2.35))
-  const leftEyeEnd = leftEyeLeft + leftEyeWidth
-  const eyesMiddle = leftEyeEnd + ((rightEyeLeft - leftEyeEnd) / 2)
-  const mouthLeft = round(random(eyesMiddle * .9, eyesMiddle * 1.1)) - mouthWidth / 2
-  setCSSProperty('--mouth-width', `${mouthWidth}%`)
-  setCSSProperty('--mouth-left', `${mouthLeft}%`)
-  setCSSProperty('--mouth-top', `${mouthTop}%`)
-  setCSSProperty('--mouth-height', `${mouthHeight}%`)
+const mouthWidth = round(random(6, 16))
+const mouthHeight = round(random(mouthWidth / 2.5, mouthWidth))
+const mouthTop = round(random(rightEyeTop * 2.25, rightEyeTop * 2.35))
+const leftEyeEnd = leftEyeLeft + leftEyeWidth
+const eyesMiddle = leftEyeEnd + ((rightEyeLeft - leftEyeEnd) / 2)
+const mouthLeft = round(random(eyesMiddle * .9, eyesMiddle * 1.1)) - mouthWidth / 2
+setCSSProperty('--mouth-width', `${mouthWidth}%`)
+setCSSProperty('--mouth-left', `${mouthLeft}%`)
+setCSSProperty('--mouth-top', `${mouthTop}%`)
+setCSSProperty('--mouth-height', `${mouthHeight}%`)
 
-  const leftEyeBottom = leftEyeTop + leftEyeHeight
-  const eyesMiddleVertical = leftEyeTop + (leftEyeBottom - rightEyeTop) / 2
-  const noseWidth = round(random(6, 12))
-  const noseHeight = round(random(noseWidth * .6, noseWidth * .8))
-  const noseTop = round(random(eyesMiddleVertical * .8, eyesMiddleVertical)) - noseHeight / 2
-  const noseLeft = round(random(eyesMiddle * .95, eyesMiddle * 1.05)) - noseWidth / 2
-  setCSSProperty('--nose-top', `${noseTop}%`)
-  setCSSProperty('--nose-left', `${noseLeft}%`)
-  setCSSProperty('--nose-width', `${noseWidth}%`)
-  setCSSProperty('--nose-height', `${noseHeight}%`)
-  setCSSProperty('--nose-opacity', rightEyeLeft - leftEyeEnd > 14 ? round(Math.random() > .4 ? Math.random() : 0) : 0)
+const leftEyeBottom = leftEyeTop + leftEyeHeight
+const eyesMiddleVertical = leftEyeTop + (leftEyeBottom - rightEyeTop) / 2
+const noseWidth = round(random(6, 12))
+const noseHeight = round(random(noseWidth * .6, noseWidth * .8))
+const noseTop = round(random(eyesMiddleVertical * .8, eyesMiddleVertical)) - noseHeight / 2
+const noseLeft = round(random(eyesMiddle * .95, eyesMiddle * 1.05)) - noseWidth / 2
+setCSSProperty('--nose-top', `${noseTop}%`)
+setCSSProperty('--nose-left', `${noseLeft}%`)
+setCSSProperty('--nose-width', `${noseWidth}%`)
+setCSSProperty('--nose-height', `${noseHeight}%`)
+setCSSProperty('--nose-opacity', rightEyeLeft - leftEyeEnd > 14 ? round(Math.random() > .4 ? Math.random() : 0) : 0)
 }
 
 const refreshBtn = query('.refresh')
@@ -391,54 +384,54 @@ let isAnimating = false
 let animation
 
 const rotate = () => {
-  const rotation = parseFloat(getCSSProperty(rotationKey))
-  const increase = (90 - rotation) / 80
-  const newRotation = rotation + (increase > 0 ? increase : 0.66)
-  setCSSProperty(rotationKey, `${newRotation}deg`)
-  if (isRotating) {
-    requestAnimationFrame(rotate)
-  }
+const rotation = parseFloat(getCSSProperty(rotationKey))
+const increase = (90 - rotation) / 80
+const newRotation = rotation + (increase > 0 ? increase : 0.66)
+setCSSProperty(rotationKey, `${newRotation}deg`)
+if (isRotating) {
+requestAnimationFrame(rotate)
+}
 }
 
 const rewindRotationKey = () => {
-  const rotation = parseFloat(getCSSProperty(rotationKey))
-  const decrease = rotation / 50
-  const newRotation = rotation - (decrease > 0 ? decrease : 0.66)
-  setCSSProperty(rotationKey, `${newRotation}deg`)
-  if (isAnimating) {
-    requestAnimationFrame(rewindRotationKey)
-  }
+const rotation = parseFloat(getCSSProperty(rotationKey))
+const decrease = rotation / 50
+const newRotation = rotation - (decrease > 0 ? decrease : 0.66)
+setCSSProperty(rotationKey, `${newRotation}deg`)
+if (isAnimating) {
+requestAnimationFrame(rewindRotationKey)
+}
 }
 
 const animate = () => {
-  isAnimating = true
-  kodama.classList.add('animating')
-  animation = setTimeout(() => {
-    kodama.classList.remove('animating')
-    setCSSProperty(rotationKey, `0deg`)
-    isAnimating = false
-  }, 4000)
+isAnimating = true
+kodama.classList.add('animating')
+animation = setTimeout(() => {
+kodama.classList.remove('animating')
+setCSSProperty(rotationKey, `0deg`)
+isAnimating = false
+}, 4000)
 }
 
 const release = () => {
-  isRotating = false
-  animate()
-  rewindRotationKey()
+isRotating = false
+animate()
+rewindRotationKey()
 }
 
 const onPressDown = () => {
-  kodama.classList.remove('animating')
-  clearTimeout(animation)
-  isRotating = true
-  isAnimating = false
-  rotate()
+kodama.classList.remove('animating')
+clearTimeout(animation)
+isRotating = true
+isAnimating = false
+rotate()
 }
 
 const onPressUp = () => {
-  if (!isRotating || isAnimating) {
-    return
-  }
-  release()
+if (!isRotating || isAnimating) {
+return
+}
+release()
 }
 
 kodama.addEventListener('mousedown', onPressDown)
@@ -451,7 +444,13 @@ refreshBtn.addEventListener('click', refresh)
 
 rotate()
 setTimeout(release, 2000)
-            </script>
+        </script>
+
+    </head>
+    <body>
+        <h1>Mi pagina web</h1>
+        <h2>Tont@ si lo lees</h2>
+           
             <div class="panel-1">
                 <div class="kodama">
                   <div class="face">
@@ -477,6 +476,5 @@ setTimeout(release, 2000)
                   </clipPath>
                 </defs>
               </svg>
-        </section>
     </body>
 </html>
